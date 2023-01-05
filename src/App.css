@@ -1,10 +1,15 @@
 .App {
   text-align: center;
+  font-family: "neodgm";
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.mainDiv{
+  margin-top: 100px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +40,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@font-face {
+  font-family: "neodgm";
+  src: url("./fonts/neodgm.ttf");
+}
+.msgBoxWrap {
+  width: 58%;
+  margin: 10px auto;
+  position: relative;
+}
+.msgBoxWrap img {
+  width: 100%;
+  vertical-align: middle;
+}
+.msgBoxText {
+  width: 90%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
 }
