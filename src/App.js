@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React from "react";
+import cat from './images/cat-FirstMeet.png'
+import catFood from './images/catFood.png'
+import catToy from './images/catToy.png'
+import Box from './images/textBoxLong.png'
+import feedFood from './pages/FeedFood.js'
+import updateHeart from './pages/MsgText.js'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <div className="App"></div>
+        <div class="mainDiv">  
+            <img src={cat} alt="cat" width="500"/>  
+            <img src={catFood} alt="catFood" width="300" 
+                onClick= {feedFood}/>
+            <img src={catToy} alt="catToy" width="300"/>
+            <div class="msgBoxWrap">
+                <div class="msgBoxImg">
+                    <img src={Box} alt="Box"  width="1200"/>
+                </div>
+                <div class="msgBoxText">
+                    <MsgText/>
+                </div>
+            </div>
+        </div>
+      </nav>
     </div>
   );
 }
