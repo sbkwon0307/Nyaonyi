@@ -11,7 +11,7 @@ function App() {
   const [heart, setHeart] = useState(parseInt(localStorage.getItem("heart")));
   const feedFood = () => {
                           setHeart(heart+1); 
-                          localStorage.setItem("heart",heart);
+                          localStorage.setItem("heart",heart)
                         }
 
   return (
