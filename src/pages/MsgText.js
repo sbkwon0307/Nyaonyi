@@ -5,3 +5,5 @@ function MsgText(props){
         </div>
     )
 }
+
+export default MsgText ;
