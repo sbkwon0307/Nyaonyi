@@ -2,8 +2,6 @@ import React, {useState} from "react";
 
 
 const FeedButton = () => {
-    let startHeart = (localStorage.getItem("heart"))==null? 0 : parseInt(localStorage.getItem("heart"));
-    const [heart, setHeart] = useState(startHeart);
 
 
     const handleFeedButtonClick = () => {

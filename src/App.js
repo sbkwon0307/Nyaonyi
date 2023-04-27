@@ -12,24 +12,30 @@ import axios from 'axios';
 
 function App() {
   const sendRequest = async() => {
-    const response = await axios.get('http://localhost:8090');
-    console.log(response);
-    console.log(response.data);
+    //const response = await axios.get('http://localhost:8090');
+  }
+  //하트 상태
+  let startHeart = (localStorage.getItem("heart"))==null? 0 : parseInt(localStorage.getItem("heart"));
+  const [heart, setHeart] = useState(startHeart);
+  //메세지 창
+  const [msgText, setMsgText] = useState('');
+  function handleButtonClick(msgText){
+    setMsgText(msgText);
   }
 
   const [catImg, setCatImg] = useState(0);
   const [intervlId, setIntervalId] = useState(null);
   let timeoutId = useRef(null);
-  const images = [cat, cat2];
-  const playWith = () => {
 
-             
-    const changeText = () => {
-      if(heart<10) return (`냐옹이가 아직 당신을 낯설어합니다.`)
-      else if(heart>=10&&heart<30) return ("냐옹이가 당신을 조금은 기억합니다.")
-      else if(heart>30) return ("냐옹이가 조금 경계를 풀었습니다.")
-  }         }
-  const [msgText, setMsgText] = useState(changeText());
+  const images = [cat, cat2];
+    
+  const changeText = () => {
+    if(heart<10) return (`냐옹이가 아직 당신을 낯설어합니다.`)
+    else if(heart>=10&&heart<30) return ("냐옹이가 당신을 조금은 기억합니다.")
+    else if(heart>30) return ("냐옹이가 조금 경계를 풀었습니다.")
+  }         
+
+
   useEffect(()=>{
     sendRequest();
     const id = setInterval(()=>{
