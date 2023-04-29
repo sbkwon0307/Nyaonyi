@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useRef} from "react";
+import {Motion, spring} from "react-motion";
 import cat from './images/cat-FirstMeet.png'
 import cat2 from './images/cat-FirstMeet2.png'
 import catFood from './images/catFood.png'
@@ -11,39 +12,41 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  const sendRequest = async() => {
-    //const response = await axios.get('http://localhost:8090');
-  }
-  //하트 상태
+  //처음 접속 시 로컬스토리지에서 하트 값 가져오기. 없으면 0으로 설정
   let startHeart = (localStorage.getItem("heart"))==null? 0 : parseInt(localStorage.getItem("heart"));
+  //하트, 메세지 값 설정
   const [heart, setHeart] = useState(startHeart);
-  //메세지 창
   const [msgText, setMsgText] = useState('');
-  function handleButtonClick(msgText){
-    setMsgText(msgText);
+
+  function handleButtonClick(){
+    //하트 +1 업데이트 후 하트 값에 따라 메세지 변화
+    setHeart(heart+1);
+    setMsgText(changeText());
   }
-
-  const [catImg, setCatImg] = useState(0);
-  const [intervlId, setIntervalId] = useState(null);
-  let timeoutId = useRef(null);
-
-  const images = [cat, cat2];
-    
   const changeText = () => {
     if(heart<10) return (`냐옹이가 아직 당신을 낯설어합니다.`)
     else if(heart>=10&&heart<30) return ("냐옹이가 당신을 조금은 기억합니다.")
     else if(heart>30) return ("냐옹이가 조금 경 계를 풀었습니다.")
-  }         
+  }  
+
+  //고양이 움직임 표현 -> react-motion 사용해서
+  const [isVisible, setIsVisible] = useState(false);
+
+  //const [catImg, setCatImg] = useState(0);
+  //const [intervlId, setIntervalId] = useState(null);
+  //let timeoutId = useRef(null);
+  //const images = [cat, cat2];
+           
 
 
   useEffect(()=>{
-    sendRequest();
-    const id = setInterval(()=>{
+  /*  const id = setInterval(()=>{
       setCatImg(catImg=>(catImg+1)%images.length);
     },1000);
     setIntervalId(id);
     return () => clearInterval(id);
-  },[catImg]);                    
+  },[catImg]*/
+});                    
   return (
     <div className="App">
       <nav>
