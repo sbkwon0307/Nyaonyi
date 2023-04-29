@@ -32,7 +32,7 @@ function App() {
   const changeText = () => {
     if(heart<10) return (`냐옹이가 아직 당신을 낯설어합니다.`)
     else if(heart>=10&&heart<30) return ("냐옹이가 당신을 조금은 기억합니다.")
-    else if(heart>30) return ("냐옹이가 조금 경계를 풀었습니다.")
+    else if(heart>30) return ("냐옹이가 조금 경 계를 풀었습니다.")
   }         
 
 
