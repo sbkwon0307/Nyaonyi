@@ -12,7 +12,7 @@ import './App.css';
 import axios from 'axios';
 
 function App() {
-  //처음 접속 시 로컬스토리지에서 하트 값 가져오기. 없으면 0으로 설정
+  //처음 접속 시 로컬스토리지에 서 하트 값 가져오기. 없으면 0으로 설정
   let startHeart = (localStorage.getItem("heart"))==null? 0 : parseInt(localStorage.getItem("heart"));
   //하트, 메세지 값 설정
   const [heart, setHeart] = useState(startHeart);
